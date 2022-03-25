@@ -1,0 +1,146 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://ArchiveFile.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Monserat_Italic_14.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/Monserat_Bold_Italic_16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/Monserat_Bold_14.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/Monserat_Regular_16.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Fonts/Monserat_Italic_12.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Fonts/Monserat_Regular_12.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Fonts/Monserat_Bold_Italic_12.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Fonts/Monserat_Regular_14.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Fonts/Monserat_Bold_16.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Fonts/Monserat_Italic_16.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Fonts/Monserat_Bold_12.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Fonts/Monserat_Bold_Italic_14.tres" type="DynamicFont" id=13]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.8, 0.8, 0.8, 0.25 )
+
+[node name="ArchiveFile" type="PanelContainer"]
+margin_right = 1010.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+file_id = NodePath("MarginContainer/HBoxContainer/FileID")
+file_name = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Filename")
+file_size = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/FileSize")
+file_offset = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/FileOffset")
+file_md5 = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/FileMD5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1009.0
+margin_bottom = 51.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1003.0
+margin_bottom = 45.0
+custom_constants/separation = 5
+
+[node name="FileID" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+margin_right = 33.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 33, 0 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 11 )
+custom_fonts/bold_font = ExtResource( 10 )
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[right][color=#ff7f00]000[/color][/right]"
+text = "000"
+fit_content_height = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 38.0
+margin_right = 998.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 960.0
+margin_bottom = 19.0
+
+[node name="Filename" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 856.0
+margin_bottom = 19.0
+focus_mode = 2
+size_flags_horizontal = 3
+custom_colors/selection_color = Color( 0, 0.25098, 0, 1 )
+custom_colors/font_color_selected = Color( 0.6, 0.6, 0.6, 1 )
+custom_fonts/bold_italics_font = ExtResource( 13 )
+custom_fonts/italics_font = ExtResource( 2 )
+custom_fonts/bold_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "Filename"
+text = "Filename"
+fit_content_height = true
+selection_enabled = true
+override_selected_font_color = true
+
+[node name="FileSize" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 860.0
+margin_right = 960.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 100, 0 )
+custom_fonts/bold_italics_font = ExtResource( 13 )
+custom_fonts/italics_font = ExtResource( 2 )
+custom_fonts/bold_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[right]Size[/right]"
+text = "Size"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 23.0
+margin_right = 960.0
+margin_bottom = 40.0
+
+[node name="FileMD5" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 856.0
+margin_bottom = 17.0
+focus_mode = 2
+size_flags_horizontal = 3
+custom_colors/selection_color = Color( 0, 0.25098, 0, 1 )
+custom_colors/font_color_selected = Color( 0.6, 0.6, 0.6, 1 )
+custom_fonts/bold_italics_font = ExtResource( 8 )
+custom_fonts/italics_font = ExtResource( 6 )
+custom_fonts/bold_font = ExtResource( 12 )
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[i][color=#7f7faf]MD5 Sum:[/color][/i]"
+text = "MD5 Sum:"
+fit_content_height = true
+selection_enabled = true
+override_selected_font_color = true
+
+[node name="FileOffset" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 860.0
+margin_right = 960.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 2
+custom_colors/selection_color = Color( 0, 0.25098, 0, 1 )
+custom_colors/font_color_selected = Color( 0.6, 0.6, 0.6, 1 )
+custom_fonts/bold_italics_font = ExtResource( 8 )
+custom_fonts/italics_font = ExtResource( 6 )
+custom_fonts/bold_font = ExtResource( 12 )
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[right][i][color=#7f7faf]Offset: XXXX[/color][/i][/right]"
+text = "Offset: XXXX"
+selection_enabled = true
+override_selected_font_color = true

@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://ArchiveFolder.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Monserat_Italic_14.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Images/Up.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Monserat_Bold_14.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/Monserat_Italic_12.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Fonts/Monserat_Regular_12.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Fonts/Monserat_Bold_Italic_12.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Fonts/Monserat_Regular_14.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Fonts/Monserat_Bold_12.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Fonts/Monserat_Bold_Italic_14.tres" type="DynamicFont" id=13]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.8, 0.8, 0.8, 0.25 )
+
+[node name="ArchiveFolder" type="PanelContainer"]
+margin_right = 1010.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+spacer = NodePath("MarginContainer/HBoxContainer/Spacer")
+up_arrow = NodePath("MarginContainer/HBoxContainer/UpArrow")
+folder_name = NodePath("MarginContainer/HBoxContainer/VBoxContainer/FolderName")
+folder_content = NodePath("MarginContainer/HBoxContainer/VBoxContainer/FolderContent")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1009.0
+margin_bottom = 51.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1003.0
+margin_bottom = 45.0
+mouse_filter = 2
+custom_constants/separation = 5
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+margin_right = 33.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 33, 0 )
+mouse_filter = 2
+
+[node name="UpArrow" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+margin_left = 38.0
+margin_right = 71.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 33, 0 )
+mouse_filter = 2
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 38.0
+margin_right = 998.0
+margin_bottom = 40.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="FolderName" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 960.0
+margin_bottom = 19.0
+focus_mode = 2
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_fonts/bold_italics_font = ExtResource( 13 )
+custom_fonts/italics_font = ExtResource( 2 )
+custom_fonts/bold_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[color=#007fff]Folder Name[/color]"
+text = "Folder Name"
+fit_content_height = true
+selection_enabled = true
+
+[node name="FolderContent" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 23.0
+margin_right = 960.0
+margin_bottom = 40.0
+focus_mode = 2
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_fonts/bold_italics_font = ExtResource( 8 )
+custom_fonts/italics_font = ExtResource( 6 )
+custom_fonts/bold_font = ExtResource( 12 )
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[i][color=#7f7faf]Folder Content[/color][/i]"
+text = "Folder Content"
+fit_content_height = true
+selection_enabled = true
+
+[connection signal="gui_input" from="." to="." method="_on_archive_folder_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_archive_folder_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_archive_folder_mouse_exited"]
