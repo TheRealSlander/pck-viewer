@@ -1,7 +1,8 @@
 # pck-viewer
 A simple PCK archive viewer.
 
-There is currently no source code available. Maybe in the future.
+Usage:
+Provide a PCK Archive path as argument.
 
 Screenshots:
 ![screenshot36](https://user-images.githubusercontent.com/102065761/160145944-39fcc2b8-dd56-4993-b43b-0eb94cbc67f7.png)
