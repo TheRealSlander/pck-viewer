@@ -1,5 +1,6 @@
 # pck-viewer
-A simple PCK archive viewer.
+A simple Godot 3.x PCK archive viewer.
+This viewer is not compatible with the 4.x version of Godot.
 
 Usage:
 Provide a PCK Archive path as argument.
